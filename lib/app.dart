@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xff3b3d53),
+        scaffoldBackgroundColor: const Color(0xff5cb3b9),
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(const Color(0xff3b3d53)),
         )),
-        appBarTheme: const AppBarTheme(backgroundColor: Color(0xff3b3d53)),
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xff5cb3b9)),
       ),
       home: const SplashScreen(),
     );

@@ -8,6 +8,15 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0.0,
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(4.0),
+        child: Container(
+          color: const Color(0xff2f595b),
+          height: 1.5,
+          width: MediaQuery.of(context).size.width * 0.84,
+        ),
+      ),
       leading: const UserPhoto(),
       title: Row(
         children: [
@@ -24,8 +33,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(
-            Icons.notifications_none,
-            color: Color(0xfff39004),
+            Icons.notifications,
+            color: Color(0xfff6f6f6),
           ),
           onPressed: (() {}),
         ),
