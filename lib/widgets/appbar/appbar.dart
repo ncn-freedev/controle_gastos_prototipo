@@ -14,7 +14,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Container(
           color: const Color(0xff2f595b),
           height: 1.5,
-          width: MediaQuery.of(context).size.width * 0.84,
+          width: MediaQuery.of(context).size.width * 0.92,
         ),
       ),
       leading: const UserPhoto(),
