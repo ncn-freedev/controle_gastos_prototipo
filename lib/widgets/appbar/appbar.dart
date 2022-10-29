@@ -26,8 +26,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               Text('Usuário'),
             ],
           ),
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.arrow_forward_ios))
         ],
       ),
       actions: [
