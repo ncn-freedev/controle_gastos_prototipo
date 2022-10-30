@@ -20,21 +20,27 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: const UserPhoto(),
       title: Row(
         children: [
-          Column(
-            children: const [
-              Text('Bom dia, '),
-              Text('Usuário'),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: const [
+                Text('Bom dia, '),
+                Text('Usuário'),
+              ],
+            ),
           ),
         ],
       ),
       actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.notifications,
-            color: Color(0xfff6f6f6),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.notifications,
+              color: Color(0xfff6f6f6),
+            ),
+            onPressed: (() {}),
           ),
-          onPressed: (() {}),
         ),
       ],
     );

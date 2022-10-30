@@ -1,7 +1,7 @@
-import 'package:controle_gastos_prototipo/design_system/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'design_system/colors.dart';
 import 'pages/splashscreen/splashscreen.dart';
 
 class MyApp extends StatelessWidget {
