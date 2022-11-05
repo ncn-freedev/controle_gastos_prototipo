@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:teste/widgets/raisedButton_see_more/raisedbutton_see_more.dart';
 
 import '../../design_system/colors.dart';
+import '../../design_system/styleapp.dart';
 
-class ExpensesTabs extends StatefulWidget {
+// ignore: must_be_immutable
+class Expenses extends StatefulWidget {
   bool check;
 
-  ExpensesTabs({
+  Expenses({
     Key? key,
     required this.check,
   }) : super(key: key);
 
   @override
-  State<ExpensesTabs> createState() => _ExpensesTabsState();
+  State<Expenses> createState() => _ExpensesState();
 }
 
-class _ExpensesTabsState extends State<ExpensesTabs> {
+class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     if (widget.check) {
@@ -23,6 +26,10 @@ class _ExpensesTabsState extends State<ExpensesTabs> {
         height: 240,
         decoration: const BoxDecoration(
           color: AppColors.primarytextColor,
+          borderRadius: BorderRadius.only(
+              bottomLeft: StyleApp.borderRadius,
+              bottomRight: StyleApp.borderRadius,
+              topRight: StyleApp.borderRadius),
         ),
         child: const Text("Atrasadas"),
       );
@@ -31,8 +38,11 @@ class _ExpensesTabsState extends State<ExpensesTabs> {
         width: double.infinity,
         height: 240,
         decoration: const BoxDecoration(
-          color: AppColors.primarytextColor,
-        ),
+            color: AppColors.primarytextColor,
+            borderRadius: BorderRadius.only(
+                bottomLeft: StyleApp.borderRadius,
+                bottomRight: StyleApp.borderRadius,
+                topLeft: StyleApp.borderRadius)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -60,22 +70,7 @@ class _ExpensesTabsState extends State<ExpensesTabs> {
                 Text("Paga")
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Text("Despesa 1"),
-                Text("R\$10,00"),
-                Text("Paga")
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Text("Despesa 1"),
-                Text("R\$10,00"),
-                Text("Paga")
-              ],
-            )
+            seemorebutton(text: "Ver tudo")
           ],
         ),
       );

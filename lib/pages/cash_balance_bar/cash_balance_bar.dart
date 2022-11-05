@@ -1,8 +1,6 @@
-import 'package:controle_gastos_prototipo/design_system/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+
+import '../../design_system/colors.dart';
 
 class CashBalanceBar extends StatefulWidget {
   const CashBalanceBar({super.key});

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../widgets/bottom_bar/tabBar.dart';
+import '../../widgets/bottom_bar/tab_bar.dart';
+
 import '../../widgets/cards_container/cards_container.dart';
 import '../../widgets/fab/fab.dart';
-import '../../widgets/option_cards/optionsCards.dart';
+import '../../widgets/option_cards/options_cards.dart';
 import '../../widgets/profile_bar/profilebar.dart';
 import '../../widgets/cash_balance_bar/cash_balance_bar.dart';
+
 import '../../widgets/revenue_expense_bar/revenue_expense_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 16.0,
             ),
-            CardsContainer()
+            CardsContainer(),
           ],
         ),
       ),
