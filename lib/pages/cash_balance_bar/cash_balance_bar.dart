@@ -1,8 +1,6 @@
-import 'package:controle_gastos_prototipo/design_system/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+
+import '../../design_system/colors.dart';
 
 class CashBalanceBar extends StatefulWidget {
   const CashBalanceBar({super.key});
@@ -19,21 +17,24 @@ class _CashBalanceBarState extends State<CashBalanceBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              const Text(
-                'Saldo atual',
-                style: TextStyle(color: AppColors.primarytextColor),
-              ),
-              Text(
-                'R\$ $balanceText',
-                style: const TextStyle(color: AppColors.primarytextColor),
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Column(
+              children: [
+                const Text(
+                  'Saldo atual',
+                  style: TextStyle(color: AppColors.primarytextColor),
+                ),
+                Text(
+                  'R\$ $balanceText',
+                  style: const TextStyle(color: AppColors.primarytextColor),
+                ),
+              ],
+            ),
           ),
           IconButton(
               onPressed: () {

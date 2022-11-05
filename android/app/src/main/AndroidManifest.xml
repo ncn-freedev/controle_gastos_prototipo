@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.controle_gastos_prototipo">
+    package="com.example.pit01gp07">
    <application
-        android:label="controle_gastos_prototipo"
+        android:label="pit01gp07"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
