@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../design_system/colors.dart';
 import '../credit_cardsinfo/credit_cardsinfo.dart';
 
@@ -16,13 +15,13 @@ class CarrouselSliderState extends State<CarrouselSlider> {
   final assetsImagesList = [
     "assets/images/credit_cards/digio.png",
     "assets/images/credit_cards/nubank.png",
-    "assets/images/credit_cards/c6.png",
+    "assets/images/credit_cards/amedigital.png",
     "assets/images/credit_cards/fortbrasil.png"
   ];
   final dados = [
     creditcardInfo(nome: 'DIGIO', tipo: "Crédito", limite: 450, fatura: 200),
     creditcardInfo(nome: 'NUBANK', tipo: "Crédito", limite: 600, fatura: 230),
-    creditcardInfo(nome: 'C6', tipo: "Crédito", limite: 651, fatura: 100),
+    creditcardInfo(nome: 'AME', tipo: "Crédito", limite: 651, fatura: 100),
     creditcardInfo(
         nome: 'FORTBRASIL', tipo: "Crédito", limite: 453, fatura: 450),
   ];

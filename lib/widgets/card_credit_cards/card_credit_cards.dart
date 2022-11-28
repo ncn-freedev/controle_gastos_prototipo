@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../design_system/colors.dart';
 import '../../design_system/styleapp.dart';
 import '../carousel/carousel.dart';

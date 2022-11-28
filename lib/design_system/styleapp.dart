@@ -10,6 +10,14 @@ class StyleApp {
     blurRadius: 2,
   );
   static const borderRadius = Radius.circular(20.0);
+  static BorderRadius buttonBorderRadius = BorderRadius.circular(10.0);
+  static OutlineInputBorder outlinedBorder = OutlineInputBorder(
+    borderRadius: StyleApp.buttonBorderRadius,
+    borderSide: const BorderSide(
+      color: AppColors.backgroudColor,
+      width: 2.0,
+    ),
+  );
 
   static const titleCardStyle = TextStyle(
       fontFamily: 'Inter',

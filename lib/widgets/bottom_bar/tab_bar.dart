@@ -11,7 +11,6 @@ class TabBarWidget extends StatefulWidget {
       {super.key, required this.index, required this.onChangedTab});
 
   @override
-  // ignore: library_private_types_in_public_api
   _TabBarWidgetState createState() => _TabBarWidgetState();
 }
 
