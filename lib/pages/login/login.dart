@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:teste/pages/login/login_repository.dart';
 
 import '../../design_system/colors.dart';
 import '../../design_system/styleapp.dart';
@@ -19,7 +20,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  LoginController controller = LoginController.instance;
+  LoginController controller = LoginController(LoginRepository());
   final _formKey = GlobalKey<FormState>();
   Icon icon = const Icon(Icons.visibility);
   bool obscure = true;
@@ -30,8 +31,8 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     controller.addListener(() {
-      if (controller.state is LoginErrorState) {
-        final errorState = controller.state as LoginErrorState;
+      if (controller.value is LoginErrorState) {
+        final errorState = controller.value as LoginErrorState;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
@@ -39,13 +40,18 @@ class _LoginScreenState extends State<LoginScreen> {
             content: Text(errorState.message),
           ),
         );
-      } else if (controller.state is LoginSuccessState) {
-        final successState = controller.state as LoginSuccessState;
+      } else if (controller.value is LoginSuccessState) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => HomeScreen(
-            name: successState.message,
-          ),
+          builder: (BuildContext context) => const HomeScreen(),
         ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+            behavior: SnackBarBehavior.floating,
+            content: Text(controller.toString()),
+          ),
+        );
       }
     });
   }
@@ -65,9 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: const [
+                  SizedBox(width: 16),
                   Text(
                     ' Olá!',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
                       fontSize: 36,
                       color: AppColors.backgroudColor,
                     ),
@@ -77,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
+                  cursorColor: AppColors.focusTextFormFieldColor,
                   controller: emailController,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -87,15 +97,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    enabledBorder: StyleApp.outlinedBorder,
+                    enabledBorder: StyleApp.outlineTextField,
+                    focusColor: AppColors.focusTextFormFieldColor,
+                    border: StyleApp.outlineTextField,
+                    focusedBorder: StyleApp.focusTextField,
                     hintText: 'Digite seu e-mail',
                     suffixIcon: const Icon(Icons.email),
+                  ),
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: AppColors.secondtextColor,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.only(left: 16, right: 16),
                 child: TextFormField(
+                  cursorColor: AppColors.focusTextFormFieldColor,
                   controller: passwordController,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -105,7 +125,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   obscureText: obscure,
                   decoration: InputDecoration(
-                    enabledBorder: StyleApp.outlinedBorder,
+                    enabledBorder: StyleApp.outlineTextField,
+                    focusColor: AppColors.focusTextFormFieldColor,
+                    border: StyleApp.outlineTextField,
+                    focusedBorder: StyleApp.focusTextField,
                     hintText: 'Digite sua senha',
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -125,23 +148,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(top: 8, right: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              const RecoverScreen(),
-                        ));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RecoverScreen()),
+                        );
                       },
                       child: const Text(
                         'Recuperar senha?',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: AppColors.secondtextColor,
-                            fontSize: 16),
+                            fontSize: 14),
                       ),
                     )
                   ],

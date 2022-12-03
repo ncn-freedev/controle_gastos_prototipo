@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import '../../design_system/colors.dart';
+import '../../pages/homescreen/homescreen_controller.dart';
 import '../user_photo/userphoto.dart';
 
-// ignore: must_be_immutable
-class ProfileBar extends StatelessWidget {
-  String name;
-  ProfileBar({
+class ProfileBar extends StatefulWidget {
+  const ProfileBar({
     Key? key,
-    this.name = '',
   }) : super(key: key);
+
+  @override
+  State<ProfileBar> createState() => _ProfileBarState();
+}
+
+class _ProfileBarState extends State<ProfileBar> {
+  HomeScreenController controller = HomeScreenController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.getUserName();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +37,15 @@ class ProfileBar extends StatelessWidget {
                     getTime(),
                     style: const TextStyle(color: AppColors.primarytextColor),
                   ),
-                  Text(
-                    name,
-                    style: const TextStyle(color: AppColors.primarytextColor),
+                  ValueListenableBuilder(
+                    valueListenable: controller.userName,
+                    builder: (context, value, child) {
+                      return Text(
+                        controller.userName.value,
+                        style:
+                            const TextStyle(color: AppColors.primarytextColor),
+                      );
+                    },
                   ),
                 ],
               ),
